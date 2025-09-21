@@ -2,12 +2,15 @@ package com.Kaick_Marinho.workshopmongo.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.Kaick_Marinho.workshopmongo.dto.AuthorDTO;
+import com.Kaick_Marinho.workshopmongo.dto.CommentDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
@@ -24,6 +27,8 @@ public class Post implements Serializable{
 	
 	
 	private AuthorDTO author;
+	
+	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {
 	}
@@ -76,6 +81,11 @@ public class Post implements Serializable{
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
 	}
+
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+
 
 	@Override
 	public int hashCode() {
